@@ -1,0 +1,35 @@
+.container {
+  position: relative;
+
+  width: 100vw;
+  height: 100vh;
+}
+
+.divContainer {
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+  width: 100vw;
+  height: 80vh;
+}
+
+.clickableDiv {
+  position: relative;
+  width: 100vw;
+  height: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+.bottomNav {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 50px;
+  background-color: #333;
+  color: #fff;
+}

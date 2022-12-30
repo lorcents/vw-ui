@@ -1,0 +1,49 @@
+.card {
+  height: 100%;
+  width: 100%;
+
+  border-radius: 10px; /* add radius to the corners */
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23); /* add elevated effect */
+  background-color: #d8e3eb;
+  /* background-image: url("avatar.png");  */
+  /* background-position: top right;  */
+  /* background-repeat: no-repeat;  */
+}
+
+.titleContainer {
+  display: flex;
+  padding: 10px 20px 0px 20px;
+  width: 90%;
+  height: 50%;
+}
+.btnDiv {
+  flex: 1;
+
+  /* height: 20px; */
+  /* margin: 5px 5px 5px 5px; */
+}
+.btn {
+  border-radius: 20px;
+
+  height: 30px;
+}
+.btn p {
+  padding: 0px;
+}
+
+.balContainer {
+  display: flex;
+  position: absolute;
+  padding: 5px 20px 0px 20px;
+  width: 90%;
+  height: 50%;
+}
+
+.balContainer p {
+  flex: 1;
+  font-size: medium;
+  color: gray;
+}
+.balContainer h1 {
+  flex: 1;
+}

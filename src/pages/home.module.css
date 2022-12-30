@@ -1,0 +1,27 @@
+.container {
+  position: relative;
+  background: linear-gradient(to bottom, #66ccff 20%, #fff 10%);
+
+  width: 100vw;
+  height: 100vh;
+}
+
+.card {
+  position: relative;
+  margin: 2%;
+  height: 20vh;
+}
+
+.stmt {
+  padding: 10px;
+  padding-bottom: 50px;
+}
+.bottomNav {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 50px;
+  background-color: #333;
+  color: #fff;
+}

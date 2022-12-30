@@ -1,0 +1,84 @@
+/* .transactionCredit {
+  display: flex;
+
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
+  padding: 0.5rem;
+  margin: 1rem 0;
+  border-radius: 20px;
+  background-color: #eaf0fe;
+}
+.transactionDebit {
+  display: flex;
+
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
+  padding: 0.5rem;
+  margin: 1rem 0;
+  border-radius: 20px;
+  background-color: #fdf3f1;
+} */
+
+.transaction-item {
+  display: flex;
+
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
+  padding: 0.5rem;
+  margin: 1rem 0;
+  border-radius: 20px;
+  /* background-color: #eaf0fe; */
+}
+
+.transaction-item__date {
+  flex: 15%;
+}
+
+.transaction-item__description {
+  display: flex;
+  flex-direction: row;
+  /* gap: 1rem; */
+  align-items: flex-start;
+  flex-flow: column-reverse;
+  justify-content: flex-start;
+  flex: 70%;
+}
+
+.transaction-item p {
+  color: #3a3a3a;
+
+  margin: 0 1rem;
+}
+
+.transaction-item_amount {
+  flex: 15%;
+
+  font-weight: bold;
+  color: white;
+  background-color: #045f5f;
+  border: 1px solid white;
+  padding: 0.5rem;
+  border-radius: 12px;
+}
+
+@media (min-width: 580px) {
+  .transaction-item__description {
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+    flex: 1;
+  }
+
+  .transaction-item__description h2 {
+    font-size: 1.25rem;
+  }
+
+  .transaction-item_amount {
+    font-size: 1.25rem;
+    font-weight: bold;
+    padding: 0.5rem 1.5rem;
+  }
+}

@@ -1,0 +1,17 @@
+.container {
+    position: relative;
+  
+    width: 100vw;
+    height: 100vh;
+  }
+  
+  
+  .bottomNav {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 50px;
+    background-color: #333;
+    color: #fff;
+  }
