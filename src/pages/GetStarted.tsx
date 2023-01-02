@@ -4,7 +4,9 @@ import { useNavigate } from "react-router-dom";
 
 import { Fab } from "@mui/material";
 import EastRoundedIcon from "@mui/icons-material/EastRounded";
-import styles from "./getStarted.module.css";
+import styles from "./css/getStarted.module.css";
+
+import getStarted from "../getStarted.png";
 
 function GetStarted() {
   const navigate = useNavigate();
@@ -22,6 +24,7 @@ function GetStarted() {
   };
   return (
     <div className={styles.App}>
+      <img src={getStarted} alt="Get Started"></img>
       <div className={styles.Getstarted}>
         <Fab
           variant="extended"

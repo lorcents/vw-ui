@@ -11,7 +11,7 @@ import {
   fetchRecentTransaction,
 } from "../Api";
 
-import styles from "./home.module.css";
+import styles from "./css/home.module.css";
 
 function Home() {
   const [wallet, setWallet] = useState<walletInterface>({} as walletInterface);
@@ -23,12 +23,6 @@ function Home() {
     fetchRecentTransaction(4).then((t) => setTransactions(t));
   }, []);
 
-  console.log(transactions);
-
-
-  const navigateDetail=()=>{
-
-  }
   return (
     <div className={styles.container}>
       <HomeAppBar />
@@ -47,7 +41,11 @@ function Home() {
               amount={trans.amount}
               date={trans.valueTime}
               transactionType={trans.transactionType}
-             
+              accNumber={trans.accNumber}
+              con={trans.con}
+              cost={trans.cost}
+              walletId={trans.walletId}
+              transId={trans.transactionId}
             />
           ))
         )}

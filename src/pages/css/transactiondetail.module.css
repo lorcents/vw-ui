@@ -1,0 +1,18 @@
+.container {
+  position: relative;
+  align-items: center;
+  justify-content: center;
+  width: 100vw;
+  height: 100vh;
+}
+.card {
+  text-align: center;
+  position: absolute;
+  font-weight: 300;
+  padding: 10px;
+  width: 80vw;
+  margin: 150px 5% 5% 5%;
+
+  border-radius: 10px; /* add radius to the corners */
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23); /* add elevated effect */
+}

@@ -5,22 +5,31 @@ import TransactionDate from "./transactionDate";
 import styles from "./transactionItem.module.css";
 
 function TransactionItem(props: {
+  transId: number;
   comment: string;
   date: Date;
   amount: number;
   transactionType: string;
+  accNumber: string;
+  con: Date;
+  cost: number;
+  walletId: number;
 }) {
-  const navigation = useNavigate();
+  const navigate = useNavigate();
   const [bgColor, setbgColor] = useState("#eaf0fe");
+  const [minus, setMinus] = useState("");
   useEffect(() => {
     if (props.transactionType === "debit") {
       setbgColor("#fdf3f1");
+      setMinus("-");
     }
   }, [props]);
 
   const navigateDetail = () => {
     // console.log("clicked");
-    navigation("/transactDetail");
+    navigate("/transactDetail", {
+      state: props,
+    });
   };
 
   return (
@@ -36,7 +45,9 @@ function TransactionItem(props: {
       <div className={styles["transaction-item__description"]}>
         <p>{props.comment}</p>
       </div>
-      <div className={styles["transaction-item__amount"]}>{props.amount}</div>
+      <div
+        className={styles["transaction-item__amount"]}
+      >{`${minus}${props.amount}`}</div>
     </div>
   );
 }

@@ -1,7 +1,7 @@
 import { useNavigate } from "react-router-dom";
 import BottomNav from "../components/BottomNav";
 
-import styles from "./transact.module.css";
+import styles from "./css/transact.module.css";
 import ArrowOutwardIcon from "@mui/icons-material/ArrowOutward";
 import CallReceivedIcon from "@mui/icons-material/CallReceived";
 

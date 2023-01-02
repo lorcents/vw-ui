@@ -1,0 +1,20 @@
+.App {
+  position: relative;
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+  width: 100vw;
+  height: 100vh;
+}
+.App img {
+  padding-top: 5%;
+
+  height: 70vh;
+  width: 350px;
+}
+.Getstarted {
+  position: absolute;
+  bottom: 10vh;
+  left: 50%;
+  transform: translateX(-50%);
+}

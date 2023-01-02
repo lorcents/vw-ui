@@ -25,7 +25,7 @@ function BottomNav(props: { nav: string }) {
     navigate("/account");
   };
   return (
-    <Box sx={{ pb: 10 }}>
+    <Box sx={{ pb: 20 }}>
       <BottomNavigation
         showLabels
         // sx={{ width: 500 }}

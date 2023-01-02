@@ -38,7 +38,7 @@ export interface transaction {
 }
 
 export const createWallet = async (userId: string) => {
-  const wallet = await axios.post("http://192.168.86.11:8000/wallet", {
+  const wallet = await axios.post("http://192.168.86.15:8000/wallet", {
     userId: userId,
     currencyId: 1,
   });
@@ -52,7 +52,7 @@ export const fetchWallet = async (
   walletId: number
 ): Promise<walletInterface> => {
   const wallet = await axios.get(
-    `http://192.168.86.11:8000/wallet/${walletId}`
+    `http://192.168.86.15:8000/wallet/${walletId}`
   );
 
   const walletData = wallet.data;
@@ -64,7 +64,7 @@ export const fetchWallet = async (
 
 export const requestPayment = async (reqData: mps) => {
   const reqPayment = await axios.post(
-    "http://192.168.86.11:8000/mpsTransaction",
+    "http://192.168.86.15:8000/mpsTransaction",
     reqData
   );
 
@@ -74,7 +74,7 @@ export const requestPayment = async (reqData: mps) => {
 
 export const withDraw = async (data: jen) => {
   const withdraw = await axios.post(
-    "http://192.168.86.21:8000/jenTransaction",
+    "http://192.168.86.15:8000/jenTransaction",
     data
   );
 
@@ -87,7 +87,7 @@ export const fetchRecentTransaction = async (
   walletId: number
 ): Promise<transaction[]> => {
   const result = await axios.post(
-    "http://192.168.86.11:8000/fetchRecenttransactions",
+    "http://192.168.86.15:8000/fetchRecenttransactions",
     { n: 10, walletId }
   );
 
