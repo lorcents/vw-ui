@@ -1,12 +1,34 @@
 import axios from "axios";
+const url = "http://192.168.30.11:4500";
 
-interface mps {
-  amount: number;
-  fee: number;
+export type TransactionType = "debit" | "credit"; //debit-withdraw credit-deposit
+type Service = "mps" | "jen";
+/**
+ * rtgs => send money to local kenya bank account using rtgs ||
+ * swift => send money to global accounts using swift ||
+ * kyc => know your customer ||
+ * equity => send money to equity bank account ||
+ * placc => send money to another bank account using pesa link bank ||
+ * plmb => send money to mobile number using pesa link mobile
+ */
+export type ServiceId =
+  | "express"
+  | "rtgs"
+  | "swift"
+  | "kyc"
+  | "equity"
+  | "placc"
+  | "plmb"
+  | "mbwt";
+// p3: { bankCode: "06", accNo: "12345", amt: "", fee: "" },
+
+export interface TransactionBody {
+  walletId: number; //wallet ID
   comment: string;
-  appId: string;
-  phoneNumber: string;
-  walletId: number;
+  transactionType: TransactionType; //transaction type: debit or credit
+  service: Service;
+  serviceId: ServiceId;
+  serviceBody: any;
 }
 
 interface jen {
@@ -19,9 +41,13 @@ interface jen {
 }
 export interface walletInterface {
   id: number;
-  UserId: string;
-  currencyId: number;
+  userId: string;
   balance: number;
+  currency: {
+    countryName: string;
+    currencyCode: string;
+    countryCode: string;
+  };
 }
 
 export interface transaction {
@@ -38,7 +64,7 @@ export interface transaction {
 }
 
 export const createWallet = async (userId: string) => {
-  const wallet = await axios.post("http://192.168.86.15:8000/wallet", {
+  const wallet = await axios.post(`${url}/wallet`, {
     userId: userId,
     currencyId: 1,
   });
@@ -48,12 +74,8 @@ export const createWallet = async (userId: string) => {
   return walletData;
 };
 
-export const fetchWallet = async (
-  walletId: number
-): Promise<walletInterface> => {
-  const wallet = await axios.get(
-    `http://192.168.86.15:8000/wallet/${walletId}`
-  );
+export const fetchWallet = async (): Promise<walletInterface> => {
+  const wallet = await axios.post(`${url}/fetchWallet`, { userId: "2" });
 
   const walletData = wallet.data;
 
@@ -62,21 +84,15 @@ export const fetchWallet = async (
   return walletData;
 };
 
-export const requestPayment = async (reqData: mps) => {
-  const reqPayment = await axios.post(
-    "http://192.168.86.15:8000/mpsTransaction",
-    reqData
-  );
+export const requestPayment = async (reqData: TransactionBody) => {
+  const reqPayment = await axios.post(`${url}/mpsTransaction`, reqData);
 
   const reqPaymentData = reqPayment.data;
   return reqPaymentData;
 };
 
 export const withDraw = async (data: jen) => {
-  const withdraw = await axios.post(
-    "http://192.168.86.15:8000/jenTransaction",
-    data
-  );
+  const withdraw = await axios.post(`${url}/jenTransaction`, data);
 
   const withdrawData = withdraw.data;
 
@@ -86,10 +102,10 @@ export const withDraw = async (data: jen) => {
 export const fetchRecentTransaction = async (
   walletId: number
 ): Promise<transaction[]> => {
-  const result = await axios.post(
-    "http://192.168.86.15:8000/fetchRecenttransactions",
-    { n: 10, walletId }
-  );
+  const result = await axios.post(`${url}/fetchRecenttransactions`, {
+    n: 10,
+    walletId: 3,
+  });
 
   const results = result.data;
 

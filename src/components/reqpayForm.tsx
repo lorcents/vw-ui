@@ -26,7 +26,7 @@ export default function PaymentForm(props: { title: string }) {
     amount: "",
     comment: "",
     appId: "12345",
-    walletId: 4,
+    walletId: 3,
   });
 
   useEffect(() => {
@@ -76,14 +76,16 @@ export default function PaymentForm(props: { title: string }) {
       setOpen(false);
       navigate("/home");
     } else {
+      console.log(userForm);
       const mps = await requestPayment({
-        phoneNumber: userForm.phoneNumber,
-        fee: 0,
-        comment: userForm.comment,
-
-        amount: +userForm.amount,
-        appId: userForm.appId,
-        walletId: userForm.walletId,
+        
+          walletId: userForm.walletId,
+          comment:  userForm.comment,
+          transactionType: "credit", 
+          service: "mps",
+          serviceId: "express",
+          serviceBody: { amount: +userForm.amount,phoneNo:userForm.phoneNumber,fee:0,accNumber:userForm.phoneNumber}
+  
       });
 
       console.log(mps);

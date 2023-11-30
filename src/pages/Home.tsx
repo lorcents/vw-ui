@@ -19,7 +19,7 @@ function Home() {
     [] as transaction[]
   );
   useEffect(() => {
-    fetchWallet(4).then((w) => setWallet(w));
+    fetchWallet().then((w) => setWallet(w));
     fetchRecentTransaction(4).then((t) => setTransactions(t));
   }, []);
 
@@ -27,7 +27,7 @@ function Home() {
     <div className={styles.container}>
       <HomeAppBar />
       <div className={styles.card}>
-        <Card balance={wallet.balance} UserId={wallet.UserId} />
+        <Card balance={wallet.balance} UserId={wallet.userId} />
       </div>
       <div className={styles.stmt}>
         <h4>Recent Transactions</h4>
